@@ -3,18 +3,11 @@
 const Path = require('path');
 const Hapi = require('hapi');
 const Inert = require('inert');
+
+const routes = require('./routes');
 const WebpackPlugin = require('./plugins/hapi-webpack');
 
-const webRoot = Path.join(__dirname, 'public');
-
-const server = new Hapi.Server({
-  port: 3000,
-  routes: {
-    files: {
-      relativeTo: webRoot
-    }
-  }
-});
+const server = new Hapi.Server({ port: 3000 });
 
 const plugins = [Inert, {
   plugin: WebpackPlugin,
@@ -24,17 +17,7 @@ const plugins = [Inert, {
 const startServer = async () => {
   await server.register(plugins);
 
-  server.route({
-    method: 'GET',
-    path: '/{param*}',
-    handler: {
-      directory: {
-        path: webRoot,
-        redirectToSlash: true,
-        index: true,
-      }
-    }
-  });
+  server.route(routes);
 
   await server.start();
 
