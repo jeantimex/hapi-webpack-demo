@@ -1,6 +1,6 @@
-const Path = require('path');
+import Path from 'path';
 
-const userRoute = require('./user');
+import userRoute from './user';
 
 const staticAssetsRoute = {
   method: 'GET',
@@ -18,4 +18,4 @@ const routes = []
   .concat(userRoute)
   .concat(staticAssetsRoute);
 
-module.exports = routes;
+export default routes;

@@ -1,3 +1,5 @@
-module.exports = function (request, h) {
+const handler = function (request, h) {
   return [];
 };
+
+export default handler;

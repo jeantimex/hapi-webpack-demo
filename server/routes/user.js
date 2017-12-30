@@ -1,7 +1,7 @@
-const getUsers = require('../controllers/user/get-users');
-const getUser = require('../controllers/user/get-user');
+import getUsers from '../controllers/user/get-users';
+import getUser from '../controllers/user/get-user';
 
-module.exports = [
+const routes = [
   {
     method: 'GET',
     path: '/api/users',
@@ -13,3 +13,5 @@ module.exports = [
     handler: getUser,
   },
 ];
+
+export default routes;
