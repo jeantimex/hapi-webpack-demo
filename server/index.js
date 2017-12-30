@@ -1,11 +1,9 @@
-'use strict';
+import Path from 'path';
+import Hapi from 'hapi';
+import Inert from 'inert';
 
-const Path = require('path');
-const Hapi = require('hapi');
-const Inert = require('inert');
-
-const routes = require('./routes');
-const WebpackPlugin = require('./plugins/hapi-webpack');
+import routes from './routes';
+import WebpackPlugin from './plugins/hapi-webpack';
 
 const server = new Hapi.Server({ port: 3000 });
 
