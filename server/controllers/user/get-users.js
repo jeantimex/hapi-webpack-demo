@@ -1,5 +1,5 @@
 const handler = function (request, h) {
-  return [];
+  return ['jeantimex'];
 };
 
 export default handler;
